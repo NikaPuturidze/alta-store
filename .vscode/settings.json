@@ -1,0 +1,13 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    },
+    {
+      "directory": "./proxy"
+    },
+    {
+      "directory": "./webapp"
+    }
+  ]
+}
