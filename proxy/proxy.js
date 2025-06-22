@@ -7,9 +7,21 @@ dotenvConfig()
 const app = express()
 app.use(express.json())
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, accept-language')
+
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(204)
+  } else {
+    next()
+  }
+})
+
 const HOST = process.env.HOST
 
-function proxyRequest(path, method, body) {
+function proxyRequest(path, method, body, extraHeaders = {}) {
   const options = {
     host: HOST,
     port: 443,
@@ -19,6 +31,7 @@ function proxyRequest(path, method, body) {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      ...extraHeaders,
     },
     servername: HOST,
     ciphers: 'TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256',
@@ -65,16 +78,19 @@ app.get('/', (req, res) => {
 })
 
 app.use(async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
-
   const path = req.originalUrl
   const method = req.method
   const body = req.body && Object.keys(req.body).length > 0 ? req.body : null
 
+  const acceptLanguage = req.headers['accept-language']
+  const extraHeaders = {}
+
+  if (acceptLanguage) {
+    extraHeaders['accept-language'] = acceptLanguage
+  }
+
   try {
-    const data = await proxyRequest(path, method, body)
+    const data = await proxyRequest(path, method, body, extraHeaders)
     res.json(data)
   } catch (err) {
     res.status(500).json({ error: err.message || 'Unknown error' })
