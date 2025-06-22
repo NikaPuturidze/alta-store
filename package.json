@@ -31,5 +31,8 @@
       "pre-commit": "pnpm lint-staged",
       "commit-msg": "pnpm --no-git-hook commitlint --edit ${1}"
     }
+  },
+  "dependencies": {
+    "eslint": "^9.29.0"
   }
 }
