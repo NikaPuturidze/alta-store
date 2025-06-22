@@ -1,13 +1,13 @@
-import express from "express";
-import https from "https";
-import { config as dotenvConfig } from "dotenv";
+import express from 'express'
+import https from 'https'
+import { config as dotenvConfig } from 'dotenv'
 
-dotenvConfig();
+dotenvConfig()
 
-const app = express();
-app.use(express.json());
+const app = express()
+app.use(express.json())
 
-const HOST = process.env.HOST;
+const HOST = process.env.HOST
 
 function proxyRequest(path, method, body) {
   const options = {
@@ -16,74 +16,72 @@ function proxyRequest(path, method, body) {
     path,
     method,
     headers: {
-      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     servername: HOST,
-    ciphers:
-      "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256",
-    secureProtocol: "TLS_method",
-    ecdhCurve: "X25519:P-256:P-384:P-521",
+    ciphers: 'TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256',
+    secureProtocol: 'TLS_method',
+    ecdhCurve: 'X25519:P-256:P-384:P-521',
     honorCipherOrder: true,
-  };
+  }
 
   return new Promise((resolve, reject) => {
     const req = https.request(options, (res) => {
-      const chunks = [];
+      const chunks = []
 
-      res.on("data", (chunk) => chunks.push(chunk));
+      res.on('data', (chunk) => chunks.push(chunk))
 
-      res.on("end", () => {
-        const data = Buffer.concat(chunks).toString("utf8");
+      res.on('end', () => {
+        const data = Buffer.concat(chunks).toString('utf8')
 
-        if (
-          res.headers["content-type"] &&
-          res.headers["content-type"].includes("application/json")
-        ) {
+        if (res.headers['content-type'] && res.headers['content-type'].includes('application/json')) {
           try {
-            resolve(JSON.parse(data));
+            resolve(JSON.parse(data))
           } catch (e) {
-            reject(new Error("Failed to parse JSON: " + e.message));
+            reject(new Error('Failed to parse JSON: ' + e.message))
           }
         } else {
-          resolve(data);
+          resolve(data)
         }
-      });
-    });
+      })
+    })
 
-    req.on("error", (err) => reject(err));
+    req.on('error', (err) => reject(err))
 
-    if (body && ["POST", "PUT", "PATCH"].includes(method)) {
-      req.write(JSON.stringify(body));
+    if (body && ['POST', 'PUT', 'PATCH'].includes(method)) {
+      req.write(JSON.stringify(body))
     }
 
-    req.end();
-  });
+    req.end()
+  })
 }
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.status(400).json({
-    error: "No endpoint specified. Please provide a valid API path."
-  });
-});
+    error: 'No endpoint specified. Please provide a valid API path.',
+  })
+})
 
 app.use(async (req, res) => {
-  const path = req.originalUrl;
-  const method = req.method;
-  const body = req.body && Object.keys(req.body).length > 0 ? req.body : null;
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
+
+  const path = req.originalUrl
+  const method = req.method
+  const body = req.body && Object.keys(req.body).length > 0 ? req.body : null
 
   try {
-    const data = await proxyRequest(path, method, body);
-    res.json(data);
+    const data = await proxyRequest(path, method, body)
+    res.json(data)
   } catch (err) {
-    res.status(500).json({ error: err.message || "Unknown error" });
+    res.status(500).json({ error: err.message || 'Unknown error' })
   }
-});
+})
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
-  console.log(
-    `Proxy server listening on \x1b[34mhttp://localhost:${PORT}\x1b[0m`
-  );
-});
+  console.log(`Proxy server listening on \x1b[34mhttp://localhost:${PORT}\x1b[0m`)
+})
