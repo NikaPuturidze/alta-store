@@ -3,5 +3,11 @@
   "searchPlaceholder": "What are you looking for?...",
   "signIn": "Sign In",
   "currentLanguage": "EN",
-  "opposeLanguage": "GE"
+  "opposeLanguage": "GE",
+  "firstFooterTitle": "About Us",
+  "secondFooterTitle": "Terms And Conditions",
+  "thirdFooterTitle": "Follow us",
+  "fourthFooterTitle": "Contact us",
+  "shops": "Shops",
+  "copyright": "Copyright © 2025 Alta.ge. All Rights Reserved"
 }

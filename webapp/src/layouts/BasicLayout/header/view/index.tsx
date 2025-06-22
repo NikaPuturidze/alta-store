@@ -1,4 +1,4 @@
-import { Wrapper } from '../../../styles/wrapper'
+import { Wrapper } from '../../../../styles/wrapper'
 import {
   Burger,
   BurgerWrapper,
