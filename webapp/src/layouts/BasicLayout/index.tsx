@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
-import { Wrapper } from '../../../styles/wrapper'
-import Footer from '../footer/view'
 import { Main } from './style'
-import Header from '../header/view'
+import Header from './header/view'
+import { Wrapper } from '../../styles/wrapper'
+import Footer from './footer/view'
 
 const BasicLayout = ({ children }: { children: ReactNode }) => {
   return (
