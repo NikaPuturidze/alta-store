@@ -1,5 +1,5 @@
 import { SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import { Pagination, Autoplay } from 'swiper/modules'
 import type { Section } from '../../interfaces/getContent.interface'
 import { PromotionSliderSection, SwiperWrapper } from './style'
 
@@ -10,7 +10,12 @@ type Props = {
 const PromotionSlider = ({ sections }: Props) => {
   return (
     <PromotionSliderSection>
-      <SwiperWrapper slidesPerView={1} modules={[Pagination]} pagination={{ clickable: true }}>
+      <SwiperWrapper
+        slidesPerView={1}
+        modules={[Pagination, Autoplay]}
+        autoplay={{ delay: 4000 }}
+        pagination={{ clickable: true }}
+      >
         {sections
           ? sections.banners?.map((banner, i) => (
               <SwiperSlide key={i}>
