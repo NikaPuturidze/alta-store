@@ -49,4 +49,13 @@
   --color-gray-8: #7a7a7a;
   --color-gray-8-05: #7a7a7a80;
   --color-gray-9: #898989;
+
+  --swiper-theme-color: var(--color-white);
+  --swiper-pag-bullet-size: 12px;
+  --swiper-pag-bullet-border-radius: 50%;
+  --swiper-pag-bullet-inactive-color: var(--color-purple-3);
+  --swiper-pag-bullet-inactive-opacity: 0.2;
+  --swiper-pag-bullet-active-color: var(--color-purple-3);
+  --swiper-pag-bullet-active-opacity: 1;
+  --swiper-pag-bullet-horizontal-gap: 6px;
 }

@@ -12,8 +12,8 @@ import {
   Copyright,
 } from './style'
 import { Wrapper } from '../../../../styles/wrapper'
-import { getFooter } from '../services/footer/getFooter'
-import type { IGetFooter } from '../services/footer/getFooter.interface'
+import { getFooter } from '../services/getFooter'
+import type { IGetFooter } from '../interfaces/getFooter.interface'
 import { useFetch } from '../../../../hooks/useFetch'
 import { useTranslation } from 'react-i18next'
 import { icons } from './getIcons'
