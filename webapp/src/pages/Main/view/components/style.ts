@@ -26,14 +26,14 @@ export const SwiperWrapper = styled(Swiper)`
     display: flex;
 
     img {
-      height: 364px;
-      width: 1168px;
+      height: 362px;
+      width: 1166px;
     }
   }
 
   .swiper-pagination {
     position: absolute;
-    bottom: 10px;
+    bottom: var(--swiper-pag-bottom);
     width: 100%;
     text-align: center;
     z-index: 10;
@@ -49,7 +49,7 @@ export const SwiperWrapper = styled(Swiper)`
     }
 
     .swiper-pagination-bullet-active {
-      background: var(--swiper-pag-bullet-inactive-color);
+      background: #fff;
       opacity: var(--swiper-pag-bullet-active-opacity);
       border: 4px solid var(--color-purple-1);
     }

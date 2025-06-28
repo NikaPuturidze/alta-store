@@ -1,5 +1,8 @@
 import { Wrapper } from '../../../../styles/wrapper'
+import { useTranslation } from 'react-i18next'
 import {
+  BottomHeader,
+  BottomHeaderWrapepr,
   Burger,
   BurgerWrapper,
   CategoriesButton,
@@ -10,6 +13,7 @@ import {
   HeaderWrapper,
   Language,
   LanguageWrapper,
+  UtilsContent,
   Logo,
   SearchIcon,
   SearchIconSm,
@@ -22,9 +26,13 @@ import {
   SignInWrapper,
   TopHeader,
   TopHeaderContent,
+  Utils,
   UtilsWrapper,
+  PhoneIcon,
+  PhoneNumberWrapper,
+  NumberSpan,
+  LinkTo,
 } from './style'
-import { useTranslation } from 'react-i18next'
 
 const Header = () => {
   const { t, i18n } = useTranslation()
@@ -97,6 +105,39 @@ const Header = () => {
           </TopHeaderContent>
         </Wrapper>
       </TopHeader>
+      <BottomHeader>
+        <Wrapper>
+          <BottomHeaderWrapepr>
+            <Utils>
+              <UtilsContent>
+                <PhoneIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+                  <path
+                    fill="#151515"
+                    d="M8.268 6.318a.76.76 0 0 0-1.151 0c-.269.265-.538.534-.804.806a.164.164 0 0 1-.223.04c-.173-.095-.36-.17-.528-.276A8.327 8.327 0 0 1 3.55 5.052a4.788 4.788 0 0 1-.725-1.155.164.164 0 0 1 .042-.213c.27-.262.532-.528.797-.797a.768.768 0 0 0 0-1.18l-.633-.634C2.814.857 2.598.637 2.375.418a.768.768 0 0 0-1.152 0c-.272.265-.53.54-.81.803a1.312 1.312 0 0 0-.41.886A3.768 3.768 0 0 0 .292 3.72a9.872 9.872 0 0 0 1.741 2.903 10.75 10.75 0 0 0 3.572 2.794c.611.32 1.28.515 1.968.574a1.46 1.46 0 0 0 1.246-.472c.23-.26.489-.496.735-.742a.77.77 0 0 0 0-1.174c-.424-.428-.853-.857-1.286-1.285ZM9.97 4.445A8.383 8.383 0 0 0 5.523.021a.328.328 0 0 0-.42.187.328.328 0 0 0 .177.433 7.733 7.733 0 0 1 4.1 4.08.328.328 0 0 0 .426.167.328.328 0 0 0 .164-.443ZM5.11 2.421a4.683 4.683 0 0 1 2.486 2.47.328.328 0 0 0 .286.19c.044 0 .088-.01.128-.03a.328.328 0 0 0 .157-.422 5.313 5.313 0 0 0-2.82-2.804.328.328 0 0 0-.41.177.328.328 0 0 0 .173.42Z"
+                  ></path>
+                </PhoneIcon>
+                <PhoneNumberWrapper>
+                  <a href="tel:*3838">
+                    <NumberSpan>*3838</NumberSpan>
+                  </a>
+                  <NumberSpan>/</NumberSpan>
+                  <a href="tel:032 238-00-38">
+                    <NumberSpan>(032) 238-00-38</NumberSpan>
+                  </a>
+                </PhoneNumberWrapper>
+              </UtilsContent>
+            </Utils>
+            <Utils>
+              <UtilsContent>
+                <LinkTo to="/blog">{t('blog')}</LinkTo>
+              </UtilsContent>
+              <UtilsContent>
+                <LinkTo to="/branches">{t('shops')}</LinkTo>
+              </UtilsContent>
+            </Utils>
+          </BottomHeaderWrapepr>
+        </Wrapper>
+      </BottomHeader>
     </HeaderWrapper>
   )
 }

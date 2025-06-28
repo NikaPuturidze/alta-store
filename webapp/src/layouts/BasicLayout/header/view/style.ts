@@ -1,7 +1,9 @@
+import { Link } from 'react-router'
 import styled from 'styled-components'
 
 export const HeaderWrapper = styled.header`
-  margin-bottom: 22px;
+  position: relative;
+  margin-bottom: 28px;
 `
 
 export const TopHeader = styled.div`
@@ -249,4 +251,52 @@ export const SearchSm = styled.div`
 export const SearchIconSm = styled.svg`
   width: 20px;
   height: 20px;
+`
+
+export const BottomHeader = styled.div`
+  padding-block: 18px;
+  border-bottom: 1px solid var(--color-light-gray-1);
+  border-top: 1px solid var(--color-light-gray-1);
+  margin-top: 0px;
+`
+
+export const BottomHeaderWrapepr = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+`
+
+export const Utils = styled.nav`
+  display: flex;
+  gap: 24px;
+`
+
+export const UtilsContent = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const PhoneIcon = styled.svg`
+  width: 10px;
+  height: 10px;
+  fill: none;
+`
+
+export const PhoneNumberWrapper = styled.div`
+  display: flex;
+  gap: 3px;
+  margin-left: 6px;
+`
+
+export const NumberSpan = styled.span`
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  outline-style: none;
+  outline-color: none;
+`
+
+export const LinkTo = styled(Link)`
+  color: var(--color-black-4) !important;
 `
