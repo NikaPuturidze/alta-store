@@ -1,13 +1,9 @@
 import { SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
-import type { Section } from '../../interfaces/getContent.interface'
 import { PromotionSliderSection, SwiperWrapper } from './style'
+import type { SectionProps } from '../../../types'
 
-type Props = {
-  sections: Section | undefined
-}
-
-const PromotionSlider = ({ sections }: Props) => {
+const PromotionSlider = ({ sections }: SectionProps) => {
   return (
     <PromotionSliderSection>
       <SwiperWrapper
