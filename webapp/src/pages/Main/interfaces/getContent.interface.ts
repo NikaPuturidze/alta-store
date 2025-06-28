@@ -18,7 +18,7 @@ export interface Section {
   colorValue?: string | null
   banners?: Banner[] | null
   products?: Product | null
-  categories?: Category | null
+  categories?: Category[] | null
   brands?: Brand | null
   promotions?: Promotion | null
   promotionProducts?: Product[] | null

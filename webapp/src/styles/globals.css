@@ -27,8 +27,9 @@ html {
   text-transform: capitalize;
   display: flex;
   flex-grow: 1;
+  overflow-x: hidden;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 1024px) {
     font-size: 12px;
     line-height: 12px;
   }
