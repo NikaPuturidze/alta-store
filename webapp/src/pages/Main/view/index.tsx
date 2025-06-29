@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { useFetch } from '../../../hooks/useFetch'
 import { getContent } from '../services/getContent'
-import DoubleBanner from './components/DoubleSection/DoubleBanner'
-import PromotionSlider from './components/PromotionSlider/PromotionSlider'
-import MegaMenu from './components/MegaMenu/MegaMenu'
-import OnlyOnline from './components/OnlyOnline/OnlyOnline'
+import DoubleBanner from './components/DoubleSection'
+import PromotionSlider from './components/PromotionSlider'
+import MegaMenu from './components/MegaMenu'
+import OnlyOnline from './components/OnlyOnline'
 
 const Main = () => {
   const { i18n } = useTranslation()
