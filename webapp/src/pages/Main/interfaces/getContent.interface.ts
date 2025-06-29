@@ -15,14 +15,14 @@ export interface Section {
   promotionFinishDate?: string | null
   orderNumber: number | null
   isActiveOrderSection: boolean
-  colorValue?: string | null
-  banners?: Banner[] | null
-  products?: Product | null
-  categories?: Category[] | null
-  brands?: Brand | null
-  promotions?: Promotion | null
-  promotionProducts?: Product[] | null
-  activeOrders?: unknown
+  colorValue: string | null
+  banners: Banner[] | null
+  products: Product[] | null
+  categories: Category[] | null
+  brands: Brand | null
+  promotions: Promotion | null
+  promotionProducts: Product[] | null
+  activeOrders: unknown
 }
 
 export interface Banner {
@@ -56,8 +56,31 @@ export interface Product {
   route: string
   categoryId: number
   categoryName: string
-  brandName?: string | null
+  brandName: string | null
   storageQuantity: number
+  parentCategoryId: number
+  parentCategoryName: string
+  iconUrl: string
+  discountAmount: number
+  discountPercent: number
+  hasDiscount: boolean
+  labelText: string | null
+  labelColor: string
+  maxQuantityInCart: number
+  isFavorite: boolean
+  isInCart: boolean
+  isPreOrderProduct: boolean
+  preOrderProductAvailableOn: string | null
+  isNightPromotion: boolean
+  onSaleSoon: boolean
+  doNotRecordStock: boolean
+  disableBuyButton: boolean
+  promotionAvailableQuantity: number | null
+  promotionSoldQuantity: number | null
+  requestedQuantity: number
+  orderNo: number
+  giftType: string | null
+  gifts: unknown
 }
 
 export interface Category {

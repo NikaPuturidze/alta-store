@@ -64,4 +64,8 @@
   --swiper-pag-bullet-active-opacity: 1;
   --swiper-pag-bullet-horizontal-gap: 6px;
   --swiper-pag-bottom: 18px;
+
+  --swiper-navigation-top-offset: 35%;
+  --swiper-navigation-side-offset: 5px;
+  --swiper-navigation-color: var(--color-white);
 }
