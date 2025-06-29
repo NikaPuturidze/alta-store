@@ -5,6 +5,7 @@ import DoubleBanner from './components/DoubleSection'
 import PromotionSlider from './components/PromotionSlider'
 import MegaMenu from './components/MegaMenu'
 import OnlyOnline from './components/OnlyOnline'
+import SingleSection from './components/SingleSection'
 
 const Main = () => {
   const { i18n } = useTranslation()
@@ -16,6 +17,7 @@ const Main = () => {
       <DoubleBanner sections={response?.section[2]} />
       <MegaMenu sections={response?.section[3]} />
       <OnlyOnline sections={response?.section[4]} />
+      <SingleSection sections={response?.section[5]} />
     </>
   )
 }
