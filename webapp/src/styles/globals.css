@@ -1,10 +1,26 @@
 @import './variables.css';
 
 @font-face {
-  font-family: 'helveticaNeue';
-  src: url('../../public/fonts/76d7d7c5eeefb852-s.p.otf') format('opentype');
+  font-family: helveticaNeue;
+  src: url(/fonts/e6d6a18e22e2b8d8-s.p.otf) format('opentype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: helveticaNeue;
+  src: url(/fonts/76d7d7c5eeefb852-s.p.otf) format('opentype');
   font-display: swap;
   font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: helveticaNeue;
+  src: url(/fonts/4751bb148477e31c-s.p.otf) format('opentype');
+  font-display: swap;
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -77,4 +93,8 @@ button {
 input,
 select {
   border: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }
