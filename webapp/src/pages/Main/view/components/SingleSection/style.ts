@@ -5,9 +5,13 @@ export const Content = styled(Link)`
   display: block;
   width: 100%;
   height: 188px;
-  position: relative;
   border-radius: 10px;
   overflow: hidden;
+
+  @media (max-width: 1024px) {
+    height: auto;
+    aspect-ratio: 334 / 80;
+  }
 `
 
 export const Image = styled.img`
@@ -19,4 +23,9 @@ export const Image = styled.img`
   cursor: pointer;
   object-fit: cover;
   transition: 0.5s ease-in-out;
+  border-radius: 10px;
+
+  @media (max-width: 1024px) {
+    object-fit: contain;
+  }
 `

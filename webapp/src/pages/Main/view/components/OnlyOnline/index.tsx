@@ -3,16 +3,12 @@ import type { SectionProps } from '../../../types'
 import { Content, Title, TitleWrapper, Wrapper, SwiperSlideWrapper, SwiperWrapper } from './style'
 import ProductCard from '../../../../../components/ProductCard/ProductCard'
 import { Navigation } from 'swiper/modules'
-import { useEffect, useState } from 'react'
 import { Marginator } from '../style'
+import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 
 const OnlyOnline = ({ sections }: SectionProps) => {
   const { t } = useTranslation()
-  const [isDesktop, SetIsDesktop] = useState(window.innerWidth > 1024)
-
-  useEffect(() => {
-    window.addEventListener('resize', () => SetIsDesktop(window.innerWidth > 1024))
-  }, [])
+  const isDesktop = useIsDesktop()
 
   return (
     <Wrapper>
