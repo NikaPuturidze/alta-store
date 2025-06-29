@@ -20,8 +20,7 @@ const OnlyOnline = ({ sections }: SectionProps) => {
           {sections?.products ? (
             <SwiperWrapper
               enabled={isDesktop}
-              slidesPerView={isDesktop ? 5 : 'auto'}
-              spaceBetween={isDesktop ? 22 : 12}
+              slidesPerView={'auto'}
               modules={[Navigation]}
               navigation={isDesktop}
               loop={false}

@@ -10,15 +10,20 @@ export const Wrapper = styled.section`
   }
 `
 
-export const ContentWrapper = styled.div``
-
 export const Content = styled.div``
 
 export const SwiperWrapper = styled(Swiper)`
   position: relative;
+  display: block;
 
   .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
   }
 
   .swiper-button-next,
@@ -67,13 +72,15 @@ export const SwiperWrapper = styled(Swiper)`
 `
 
 export const SwiperSlideWrapper = styled(SwiperSlide)`
-  max-width: fit-content;
   min-width: 216px;
   width: 216px !important;
   margin-right: 22px;
 
+  &:last-child {
+    margin-right: 0;
+  }
+
   @media (max-width: 1024px) {
-    max-width: fit-content;
     min-width: 156px;
     width: 156px !important;
     margin-right: 12px;
