@@ -1,7 +1,7 @@
 import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 import type { SectionProps } from '../../../types'
-import { Marginator } from '../style'
-import { Content, Product, ProductWrapper, Title, TitleWrapper, Wrapper } from './style'
+import { Marginator, Title, TitleWrapper } from '../style'
+import { Content, Product, ProductWrapper, Wrapper } from './style'
 
 const GridFirstSection = ({ sections }: SectionProps) => {
   const isDesktop = useIsDesktop()

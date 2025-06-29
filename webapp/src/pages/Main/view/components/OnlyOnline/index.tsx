@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import type { SectionProps } from '../../../types'
-import { Content, Title, TitleWrapper, Wrapper, SwiperSlideWrapper, SwiperWrapper } from './style'
+import { Content, Wrapper, SwiperSlideWrapper, SwiperWrapper } from './style'
 import ProductCard from '../../../../../components/ProductCard/ProductCard'
 import { Navigation } from 'swiper/modules'
-import { Marginator } from '../style'
+import { Marginator, Title, TitleWrapper } from '../style'
 import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 
 const OnlyOnline = ({ sections }: SectionProps) => {

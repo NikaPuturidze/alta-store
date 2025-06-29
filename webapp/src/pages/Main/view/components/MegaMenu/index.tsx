@@ -1,14 +1,16 @@
 import { useTranslation } from 'react-i18next'
 import type { SectionProps } from '../../../types'
-import { Category, CategoryImg, CategoryText, Content, Title, Wrapper } from './style'
-import { Marginator } from '../style'
+import { Category, CategoryImg, CategoryText, Content, Wrapper } from './style'
+import { Marginator, Title, TitleWrapper } from '../style'
 
 const MegaMenu = ({ sections }: SectionProps) => {
   const { t } = useTranslation()
   return (
     <Wrapper>
       <Marginator>
-        <Title>{t('categories')}</Title>
+        <TitleWrapper>
+          <Title>{t('categories')}</Title>
+        </TitleWrapper>
         <Content>
           {sections
             ? sections.categories?.map((category, i) => (

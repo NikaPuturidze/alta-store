@@ -3,13 +3,6 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.section``
 
-export const Title = styled.h2`
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 20px;
-  margin-bottom: 24px;
-`
-
 export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);

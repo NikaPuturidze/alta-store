@@ -10,19 +10,6 @@ export const Wrapper = styled.section`
   }
 `
 
-export const TitleWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 24px;
-`
-
-export const Title = styled.h2`
-  position: relative;
-  font-size: 20px;
-  line-height: 20px;
-`
-
 export const ContentWrapper = styled.div``
 
 export const Content = styled.div``

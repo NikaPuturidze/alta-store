@@ -3,19 +3,6 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div``
 
-export const TitleWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-bottom: 24px;
-`
-
-export const Title = styled.h2`
-  position: relative;
-  font-size: 20px;
-  line-height: 20px;
-`
-
 export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,19 +12,15 @@ export const Content = styled.div`
   .p-1 {
     grid-area: 1 / 1 / 3 / 2;
   }
-
   .p-2 {
     grid-area: 1 / 2 / 2 / 3;
   }
-
   .p-3 {
     grid-area: 1 / 3 / 2 / 4;
   }
-
   .p-4 {
     grid-area: 2 / 2 / 3 / 3;
   }
-
   .p-5 {
     grid-area: 2 / 3 / 3 / 4;
   }
