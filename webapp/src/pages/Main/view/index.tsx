@@ -7,6 +7,7 @@ import MegaMenu from './components/MegaMenu'
 import OnlyOnline from './components/OnlyOnline'
 import SingleSection from './components/SingleSection'
 import GridFirstSection from './components/GridFirstSection'
+import BrandsSection from './components/BrandsSection'
 
 const Main = () => {
   const { i18n } = useTranslation()
@@ -20,6 +21,7 @@ const Main = () => {
       <OnlyOnline sections={response?.section[4]} />
       <SingleSection sections={response?.section[5]} />
       <GridFirstSection sections={response?.section[6]} />
+      <BrandsSection sections={response?.section[7]} />
     </>
   )
 }

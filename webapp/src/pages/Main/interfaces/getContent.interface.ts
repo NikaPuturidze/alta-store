@@ -19,7 +19,7 @@ export interface Section {
   banners: Banner[] | null
   products: Product[] | null
   categories: Category[] | null
-  brands: Brand | null
+  brands: Brand[] | null
   promotions: Promotion | null
   promotionProducts: Product[] | null
   activeOrders: unknown
@@ -95,7 +95,9 @@ export interface Category {
 export interface Brand {
   id: number
   name: string
-  iconUrl?: string
+  imageUrl?: string
+  orderNo: number
+  route: string
 }
 
 export interface Promotion {
