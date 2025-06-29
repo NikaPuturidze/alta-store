@@ -1,21 +1,19 @@
 import { Link } from 'react-router'
 import styled from 'styled-components'
 
-export const MegaMenuWrapper = styled.section``
+export const Wrapper = styled.section``
 
-export const MegaMenuTitle = styled.h2`
+export const Title = styled.h2`
   font-weight: 700;
   font-size: 20px;
   line-height: 20px;
   margin-bottom: 24px;
 `
 
-export const MegaMenuContent = styled.div`
-  position: relative;
+export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  margin-bottom: 56px;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(10, 1fr);

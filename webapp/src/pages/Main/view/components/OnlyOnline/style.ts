@@ -1,34 +1,31 @@
 import styled from 'styled-components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-export const OnlyOnlineWrapper = styled.section`
+export const Wrapper = styled.section`
   min-height: 388px;
   overflow: hidden;
-  position: relative;
-  margin-bottom: 56px;
 
   @media (max-width: 1024px) {
     min-height: 267px;
-    margin-bottom: 28px;
   }
 `
 
-export const OnlyOnlineTitleWrapper = styled.div`
+export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: 24px;
 `
 
-export const OnlyOnlineTitle = styled.h2`
+export const Title = styled.h2`
   position: relative;
   font-size: 20px;
   line-height: 20px;
 `
 
-export const OnlyOnlineContentWrapper = styled.div``
+export const ContentWrapper = styled.div``
 
-export const OnlyOnlineContent = styled.div``
+export const Content = styled.div``
 
 export const SwiperWrapper = styled(Swiper)`
   position: relative;

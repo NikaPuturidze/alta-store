@@ -1,23 +1,26 @@
 import type { SectionProps } from '../../../types'
-import { DoubleBannerSection, DoubleBannerSectionWrapper, ImageLinker } from './style'
+import { Marginator } from '../style'
+import { Wrapper, ImageLinker, Content } from './style'
 
 const DoubleBanner = ({ sections }: SectionProps) => {
   return (
-    <DoubleBannerSectionWrapper>
-      <DoubleBannerSection>
-        {sections
-          ? sections.banners?.map((banner, i) => (
-              <ImageLinker to={banner.route} key={i}>
-                <img
-                  src={banner.webImageUrl}
-                  width={banner.webDimensions?.widthInPixels}
-                  height={banner.webDimensions?.heightInPixels}
-                />
-              </ImageLinker>
-            ))
-          : null}
-      </DoubleBannerSection>
-    </DoubleBannerSectionWrapper>
+    <Wrapper>
+      <Marginator>
+        <Content>
+          {sections
+            ? sections.banners?.map((banner, i) => (
+                <ImageLinker to={banner.route} key={i}>
+                  <img
+                    src={banner.webImageUrl}
+                    width={banner.webDimensions?.widthInPixels}
+                    height={banner.webDimensions?.heightInPixels}
+                  />
+                </ImageLinker>
+              ))
+            : null}
+        </Content>
+      </Marginator>
+    </Wrapper>
   )
 }
 
