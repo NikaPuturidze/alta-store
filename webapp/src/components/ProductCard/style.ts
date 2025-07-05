@@ -72,6 +72,7 @@ export const Image = styled.img`
   width: 100%;
   inset: 0;
   color: transparent;
+  object-fit: contain;
 `
 
 export const Info = styled.div`

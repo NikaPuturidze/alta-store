@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules'
 import { Marginator, Title, TitleWrapper } from '../style'
 import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 
-const RecommendSection = ({ sections }: SectionProps) => {
+const GeneralSlider = ({ sections }: SectionProps) => {
   const isDesktop = useIsDesktop()
 
   return (
@@ -36,4 +36,4 @@ const RecommendSection = ({ sections }: SectionProps) => {
   )
 }
 
-export default RecommendSection
+export default GeneralSlider
