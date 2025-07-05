@@ -10,7 +10,7 @@ const GridSecondSection = ({ sections }: SectionProps) => {
     <Marginator>
       <Wrapper>
         <TitleWrapper>
-          <Title>{sections?.title}</Title>
+          <Title>{sections?.title?.split('-')[0]}</Title>
         </TitleWrapper>
         <Content>
           {sections && sections.banners

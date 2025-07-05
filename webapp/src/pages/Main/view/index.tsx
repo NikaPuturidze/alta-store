@@ -26,6 +26,7 @@ const Main = () => {
       <BrandsSection sections={response?.section[7]} />
       <RecommendSection sections={response?.section[8]} />
       <GridSecondSection sections={response?.section[9]} />
+      <DoubleBanner sections={response?.section[10]} />
     </>
   )
 }

@@ -10,7 +10,7 @@ const BrandsSection = ({ sections }: SectionProps) => {
   return (
     <Marginator>
       <TitleWrapper>
-        <Title>{sections?.title}</Title>
+        <Title>{sections?.title?.split('-')[0]}</Title>
       </TitleWrapper>
       <Content>
         <SwiperWrapper

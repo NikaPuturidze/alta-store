@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import type { SectionProps } from '../../../types'
 import { Content, Wrapper, SwiperSlideWrapper, SwiperWrapper } from './style'
 import ProductCard from '../../../../../components/ProductCard/ProductCard'
@@ -7,14 +6,13 @@ import { Marginator, Title, TitleWrapper } from '../style'
 import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 
 const RecommendSection = ({ sections }: SectionProps) => {
-  const { t } = useTranslation()
   const isDesktop = useIsDesktop()
 
   return (
     <Wrapper>
       <Marginator>
         <TitleWrapper>
-          <Title>{t('altaReccomends')}</Title>
+          <Title>{sections?.title?.split('-')[0]}</Title>
         </TitleWrapper>
         <Content>
           {sections?.products ? (

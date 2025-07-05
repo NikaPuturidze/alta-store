@@ -1,15 +1,13 @@
-import { useTranslation } from 'react-i18next'
 import type { SectionProps } from '../../../types'
 import { Category, CategoryImg, CategoryText, Content, Wrapper } from './style'
 import { Marginator, Title, TitleWrapper } from '../style'
 
 const MegaMenu = ({ sections }: SectionProps) => {
-  const { t } = useTranslation()
   return (
     <Wrapper>
       <Marginator>
         <TitleWrapper>
-          <Title>{t('categories')}</Title>
+          <Title>{sections?.title?.split('-')[0]}</Title>
         </TitleWrapper>
         <Content>
           {sections
