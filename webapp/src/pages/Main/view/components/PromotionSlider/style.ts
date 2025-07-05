@@ -1,5 +1,6 @@
+import { Link } from 'react-router'
 import styled from 'styled-components'
-import { Swiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const PromotionSliderSection = styled.section`
   width: 1168px;
@@ -10,6 +11,62 @@ export const PromotionSliderSection = styled.section`
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
+
+  .swiper {
+    height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    width: calc(100% + 20px);
+    aspect-ratio: auto;
+    margin-top: 0px;
+    margin-bottom: 12px;
+    background-color: unset;
+    border: unset;
+    border-radius: unset;
+  }
+`
+
+export const StyledSwiperSlide = styled(SwiperSlide)`
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: block;
+
+  @media (max-width: 1024px) {
+    margin-right: 12px;
+    flex-shrink: 0;
+    position: relative;
+    transition-property: transform;
+    display: block;
+    width: 290px !important;
+    height: 118px !important;
+  }
+`
+
+export const StyledLink = styled(Link)`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    color: transparent;
+    object-fit: fill;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100% !important;
+    height: 100% !important;
+  }
 `
 
 export const SwiperWrapper = styled(Swiper)`
@@ -23,12 +80,14 @@ export const SwiperWrapper = styled(Swiper)`
   display: block;
 
   .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     display: flex;
-
-    img {
-      height: 362px;
-      width: 1166px;
-    }
+    transition-property: transform;
+    transition-timing-function: initial;
+    box-sizing: content-box;
   }
 
   .swiper-pagination {

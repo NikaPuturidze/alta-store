@@ -6,21 +6,27 @@ export const Wrapper = styled.section``
 export const Content = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  gap: 20px;
+  gap: 30px;
   position: relative;
   border-radius: 10px;
   background-color: transparent;
+
+  @media (max-width: 1024px) {
+    gap: 10px;
+  }
+
+  @media (max-width: 640px) {
+    border-radius: 6px;
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ImageLinker = styled(Link)`
-  width: fit-content;
-  height: fit-content;
-  display: contents;
-  overflow: hidden;
-
+  width: 100%;
   img {
     border-radius: 10px;
+    width: 100%;
   }
 `

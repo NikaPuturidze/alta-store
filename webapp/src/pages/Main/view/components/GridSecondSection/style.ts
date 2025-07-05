@@ -29,9 +29,10 @@ export const Content = styled.div`
     gap: 10px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    margin-bottom: -27%;
 
     .p-1 {
       grid-area: 1 / 1 / 2 / 2;

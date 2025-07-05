@@ -68,4 +68,9 @@
   --swiper-navigation-top-offset: 35%;
   --swiper-navigation-side-offset: 5px;
   --swiper-navigation-color: var(--color-white);
+
+  @media (max-width: 1024px) {
+    --swiper-pag-bullet-size: 8px;
+    --swiper-pag-bottom: 8px;
+  }
 }

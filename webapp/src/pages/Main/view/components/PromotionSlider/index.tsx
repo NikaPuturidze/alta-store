@@ -1,22 +1,25 @@
-import { SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
-import { PromotionSliderSection, SwiperWrapper } from './style'
+import { PromotionSliderSection, StyledLink, StyledSwiperSlide, SwiperWrapper } from './style'
 import type { SectionProps } from '../../../types'
+import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 
 const PromotionSlider = ({ sections }: SectionProps) => {
+  const isDesktop = useIsDesktop()
   return (
     <PromotionSliderSection>
       <SwiperWrapper
-        slidesPerView={1}
+        slidesPerView={'auto'}
         modules={[Pagination, Autoplay]}
-        autoplay={{ delay: 4000 }}
+        autoplay={{ delay: 4111000 }}
         pagination={{ clickable: true }}
       >
         {sections
           ? sections.banners?.map((banner, i) => (
-              <SwiperSlide key={i}>
-                <img src={banner.webImageUrl} />
-              </SwiperSlide>
+              <StyledSwiperSlide key={i}>
+                <StyledLink to={banner.route}>
+                  <img src={isDesktop ? banner.webImageUrl : banner.mobileImageUrl} />
+                </StyledLink>
+              </StyledSwiperSlide>
             ))
           : null}
       </SwiperWrapper>

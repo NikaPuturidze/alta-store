@@ -1,8 +1,11 @@
+import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 import type { SectionProps } from '../../../types'
 import { Marginator } from '../style'
 import { Wrapper, ImageLinker, Content } from './style'
 
 const DoubleBanner = ({ sections }: SectionProps) => {
+  const isDesktop = useIsDesktop()
+
   return (
     <Wrapper>
       <Marginator>
@@ -10,11 +13,7 @@ const DoubleBanner = ({ sections }: SectionProps) => {
           {sections
             ? sections.banners?.map((banner, i) => (
                 <ImageLinker to={banner.route} key={i}>
-                  <img
-                    src={banner.webImageUrl}
-                    width={banner.webDimensions?.widthInPixels}
-                    height={banner.webDimensions?.heightInPixels}
-                  />
+                  <img src={isDesktop ? banner.webImageUrl : banner.mobileImageUrl} />
                 </ImageLinker>
               ))
             : null}
