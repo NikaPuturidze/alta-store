@@ -9,6 +9,7 @@ import SingleSection from './components/SingleSection'
 import GridFirstSection from './components/GridFirstSection'
 import BrandsSection from './components/BrandsSection'
 import GridSecondSection from './components/GridSecondSection'
+import RecommendSection from './components/RecommendSection'
 
 const Main = () => {
   const { i18n } = useTranslation()
@@ -23,6 +24,7 @@ const Main = () => {
       <SingleSection sections={response?.section[5]} />
       <GridFirstSection sections={response?.section[6]} />
       <BrandsSection sections={response?.section[7]} />
+      <RecommendSection sections={response?.section[8]} />
       <GridSecondSection sections={response?.section[9]} />
     </>
   )
