@@ -12,7 +12,7 @@ import {
 } from './style'
 import { Navigation } from 'swiper/modules'
 
-const BrandsSection = ({ blogPostsRes }: BlogProps) => {
+const BlogsSection = ({ blogPostsRes }: BlogProps) => {
   const isDesktop = useIsDesktop()
   const { t } = useTranslation()
 
@@ -45,4 +45,4 @@ const BrandsSection = ({ blogPostsRes }: BlogProps) => {
   )
 }
 
-export default BrandsSection
+export default BlogsSection

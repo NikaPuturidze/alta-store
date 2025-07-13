@@ -8,6 +8,11 @@ export const SmallTitle = styled(Link)`
   font-size: 16px;
   font-weight: 400;
   line-height: 16px;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    line-height: 20px;
+  }
 `
 
 export const Content = styled.div``
@@ -81,7 +86,14 @@ export const ImageWrapper = styled.div`
   border-radius: 18px;
   overflow: hidden;
   transition: 0.5s ease-in-out;
-  margin-right: 22px;
+
+  @media (max-width: 1024px) {
+    min-width: 158px;
+    width: 158px;
+    height: auto;
+    aspect-ratio: 11 / 8;
+    border-radius: 10px;
+  }
 
   img {
     position: absolute;
@@ -91,18 +103,23 @@ export const ImageWrapper = styled.div`
     color: transparent;
     object-fit: cover;
     transition: 250ms;
+
+    &:hover {
+      scale: 1.02;
+    }
   }
 `
 
 export const SwiperSlideWrapper = styled(SwiperSlide)`
+  margin-right: 22px;
+  cursor: pointer;
+
   &:last-child {
     margin-right: 0;
   }
 
   @media (max-width: 1024px) {
-    min-width: 156px;
-    width: 156px !important;
-    margin-right: 12px;
+    margin-right: 16px;
   }
 `
 
@@ -112,4 +129,10 @@ export const BlogTItle = styled.h3`
   font-size: 16px;
   line-height: 24px;
   margin-top: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 11px;
+    line-height: 15px;
+    margin-top: 6px;
+  }
 `

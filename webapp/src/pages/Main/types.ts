@@ -6,5 +6,5 @@ export type SectionProps = {
 }
 
 export type BlogProps = {
-  blogPostsRes: IGetBlog | undefined
+  blogPostsRes: IGetBlog | null | undefined
 }
