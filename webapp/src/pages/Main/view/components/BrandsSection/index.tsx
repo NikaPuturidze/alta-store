@@ -1,7 +1,7 @@
 import { Navigation } from 'swiper/modules'
 import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 import type { SectionProps } from '../../../types'
-import { Marginator, Title, TitleWrapper } from '../style'
+import { Marginator, TitleLight, TitleWrapper } from '../style'
 import { Brand, Content, Frame, Linker, SwiperWrapper, Wrapper, Image } from './style'
 
 const BrandsSection = ({ sections }: SectionProps) => {
@@ -10,7 +10,7 @@ const BrandsSection = ({ sections }: SectionProps) => {
   return (
     <Marginator>
       <TitleWrapper>
-        <Title>{sections?.title?.split('-')[0]}</Title>
+        <TitleLight>{sections?.title?.split('-')[0]}</TitleLight>
       </TitleWrapper>
       <Content>
         <SwiperWrapper

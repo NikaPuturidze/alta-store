@@ -2,7 +2,7 @@ import type { SectionProps } from '../../../types'
 import { Content, Wrapper, SwiperSlideWrapper, SwiperWrapper } from './style'
 import ProductCard from '../../../../../components/ProductCard/ProductCard'
 import { Navigation } from 'swiper/modules'
-import { Marginator, Title, TitleWrapper } from '../style'
+import { Marginator, TitleLight, TitleWrapper } from '../style'
 import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 
 const GeneralSlider = ({ sections }: SectionProps) => {
@@ -12,7 +12,7 @@ const GeneralSlider = ({ sections }: SectionProps) => {
     <Wrapper>
       <Marginator>
         <TitleWrapper>
-          <Title>{sections?.title?.split('-')[0]}</Title>
+          <TitleLight>{sections?.title?.split('-')[0]}</TitleLight>
         </TitleWrapper>
         <Content>
           {sections?.products ? (

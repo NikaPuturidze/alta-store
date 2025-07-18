@@ -72,9 +72,9 @@ export const SwiperWrapper = styled(Swiper)`
 `
 
 export const SwiperSlideWrapper = styled(SwiperSlide)`
-  min-width: 216px;
-  width: 216px !important;
-  margin-right: 22px;
+  min-width: 215px;
+  width: 215px !important;
+  margin-right: 23px;
 
   &:last-child {
     margin-right: 0;

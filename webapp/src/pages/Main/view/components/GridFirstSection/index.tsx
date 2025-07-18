@@ -1,6 +1,6 @@
 import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 import type { SectionProps } from '../../../types'
-import { Marginator, Title, TitleWrapper } from '../style'
+import { Marginator, TitleLight, TitleWrapper } from '../style'
 import { Content, Product, ProductWrapper, Wrapper } from './style'
 
 const GridFirstSection = ({ sections }: SectionProps) => {
@@ -10,7 +10,7 @@ const GridFirstSection = ({ sections }: SectionProps) => {
     <Marginator>
       <Wrapper>
         <TitleWrapper>
-          <Title>{sections?.title?.split('-')[0]}</Title>
+          <TitleLight>{sections?.title?.split('-')[0]}</TitleLight>
         </TitleWrapper>
         <Content>
           {sections && sections.banners

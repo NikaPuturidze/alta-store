@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 export const CardWrapper = styled.div`
   position: relative;
-  width: 216px;
-  min-width: 216px;
+  width: 215px;
+  min-width: 215px;
   border-radius: 20px;
   border: 1px solid var(--color-light-gray-1);
   transition: 0.5s ease-in-out;
@@ -46,6 +46,8 @@ export const Badge = styled.div`
   }
 
   img {
+    width: 35px;
+    height: 35px;
     @media (max-width: 1024px) {
       width: 28px;
       height: 28px;
