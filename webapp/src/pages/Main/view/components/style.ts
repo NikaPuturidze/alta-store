@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Marginator = styled.section`
+export const Marginator = styled.div`
   position: relative;
   margin-bottom: 56px;
 
