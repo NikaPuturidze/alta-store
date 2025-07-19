@@ -12,7 +12,6 @@ export const Content = styled.div`
   position: relative;
   border-radius: 10px;
   background-color: transparent;
-  max-height: 137px;
 
   @media (max-width: 1024px) {
     gap: 10px;
@@ -26,6 +25,7 @@ export const Content = styled.div`
 
 export const ImageLinker = styled(Link)`
   width: 100%;
+  max-height: 137px;
   img {
     max-height: 137px;
     border-radius: 10px;

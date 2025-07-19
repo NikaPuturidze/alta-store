@@ -3,7 +3,7 @@ import { useIsDesktop } from '../../../../../hooks/useIsDesktop'
 import type { BlogProps } from '../../../types'
 import { Marginator, TitleLight, TitleWrapper } from '../style'
 import {
-  BlogTItle,
+  BlogTitle,
   Content,
   ImageWrapper,
   SmallTitle,
@@ -36,7 +36,7 @@ const BlogsSection = ({ blogPostsRes }: BlogProps) => {
                 <ImageWrapper>
                   <img src={post.outerImageUrl} alt="" />
                 </ImageWrapper>
-                <BlogTItle>{post.title}</BlogTItle>
+                <BlogTitle>{post.title}</BlogTitle>
               </SwiperSlideWrapper>
             ))}
         </SwiperWrapper>

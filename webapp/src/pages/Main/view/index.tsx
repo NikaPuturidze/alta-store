@@ -39,6 +39,7 @@ const Main = () => {
     switch (bannerSectionType) {
       case null:
         return <PromotionSlider key={i} sections={contentResponse?.section[i]} />
+      case 2:
       case 3:
         return <DoubleBanner key={i} sections={contentResponse?.section[i]} />
       case 6:

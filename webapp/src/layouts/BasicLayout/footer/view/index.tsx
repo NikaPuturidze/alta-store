@@ -16,10 +16,11 @@ import { getFooter } from '../services/getFooter'
 import type { IGetFooter } from '../interfaces/getFooter.interface'
 import { useFetch } from '../../../../hooks/useFetch'
 import { useTranslation } from 'react-i18next'
-import { icons } from './getIcons'
+import { useIcons } from './getIcons'
 
 const Footer = () => {
   const { t, i18n } = useTranslation()
+  const icons = useIcons()
   const { response } = useFetch<IGetFooter>(getFooter, [i18n.language])
 
   return (
@@ -44,7 +45,7 @@ const Footer = () => {
             <ContentList>
               {icons.slice(0, 4).map((icon, i) => (
                 <Link key={i} href={icon.target} target="_blank">
-                  <ListElement>
+                  <ListElement style={i === 4 ? { marginTop: '2rem' } : {}}>
                     <Icon src={icon.icon} />
                     {icon.title}
                   </ListElement>
@@ -58,7 +59,7 @@ const Footer = () => {
             <ContentList>
               {icons.slice(4).map((icon, i) => (
                 <Link key={i} href={icon.target} target="_blank">
-                  <ListElement>
+                  <ListElement style={{ textTransform: 'lowercase' }}>
                     <Icon src={icon.icon} />
                     {icon.title}
                   </ListElement>

@@ -8,60 +8,12 @@ export const Content = styled.div`
 
 export const SwiperWrapper = styled(Swiper)`
   position: relative;
-
-  .swiper-wrapper {
-    display: flex;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    background-color: var(--swiper-navigation-color);
-    border-radius: 50%;
-    width: 45px !important;
-    height: 45px !important;
-    box-shadow: 0 1.8px 9px 0 #00000033;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 10;
-    cursor: pointer;
-    top: var(--swiper-navigation-top-offset);
-    right: var(--swiper-navigation-side-offset);
-
-    &::after {
-      content: '';
-      display: block;
-      width: 16px;
-      height: 16px;
-      background-image: url(https://alta.ge/icons/arrow-right.svg);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    @media (max-width: 1024px) {
-      display: none;
-    }
-  }
-
-  .swiper-button-prev {
-    left: var(--swiper-navigation-side-offset);
-    &::after {
-      background-image: url(https://alta.ge/icons/arrow-left.svg);
-    }
-  }
-
-  .swiper-button-disabled {
-    display: none !important;
-    pointer-events: none !important;
-  }
 `
 
 export const Wrapper = styled(SwiperSlide)`
   width: 79px !important;
   min-width: 79px;
-  margin-right: 12px;
+  margin-right: 20px;
   max-width: fit-content;
 
   &:last-child {
@@ -69,7 +21,7 @@ export const Wrapper = styled(SwiperSlide)`
   }
 
   @media (max-width: 1024px) {
-    margin-right: 20px;
+    margin-right: 12px;
     width: 62px !important;
     min-width: 62px;
     max-width: fit-content;
