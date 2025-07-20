@@ -45,6 +45,7 @@ import {
   SubCategories,
   SubCategoryItem,
   SubCategoryLink,
+  LogoLink,
 } from './style'
 import { useFetch } from '../../../../hooks/useFetch'
 import { getCategories } from '../services/getCategories'
@@ -69,7 +70,9 @@ const Header = () => {
                 <path stroke="#151515" d="M2.5 10h15m-15-5h15m-15 10h15"></path>
               </Burger>
             </BurgerWrapper>
-            <Logo src="https://alta.ge/images/logo.svg" alt="Alta" decoding="async" />
+            <LogoLink to={'/'}>
+              <Logo src="https://alta.ge/images/logo.svg" alt="Alta" decoding="async" />
+            </LogoLink>
             <CategoriesWrapper
               onMouseEnter={() => setCategoriesState(true)}
               onMouseLeave={() => {

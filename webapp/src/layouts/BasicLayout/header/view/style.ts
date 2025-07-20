@@ -53,6 +53,12 @@ export const Burger = styled.svg`
   height: 20px;
 `
 
+export const LogoLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const Logo = styled.img`
   width: 220px;
   height: 40px;
