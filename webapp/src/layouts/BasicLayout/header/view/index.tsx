@@ -53,6 +53,7 @@ import type { IGetCategories } from '../interfaces/getCategories.interface'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { hardcodedStyle } from './hardcodedHeight'
+import { HoverPurple } from '../../../../styles/hover-purple'
 
 const Header = () => {
   const { t, i18n } = useTranslation()
@@ -73,79 +74,90 @@ const Header = () => {
             <LogoLink to={'/'}>
               <Logo src="https://alta.ge/images/logo.svg" alt="Alta" decoding="async" />
             </LogoLink>
-            <CategoriesWrapper
-              onMouseEnter={() => setCategoriesState(true)}
-              onMouseLeave={() => {
-                setCategoriesState(false)
-                setIndex(null)
-              }}
-            >
-              <CategoriesButton>
-                <CategoriesIcon xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="#151515" d="M2.5 10h15m-15-5h15m-15 10h15"></path>
-                </CategoriesIcon>
-                {t('categories')}
-              </CategoriesButton>
-              <CategoriesContentWrapper>
-                <AnimatePresence initial={false}>
-                  {categoriesState && (
-                    <motion.div
-                      initial={{ height: 0 }}
-                      animate={{ height: 'auto' }}
-                      exit={{ height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ display: 'flex', overflow: 'hidden' }}
-                    >
-                      <CategoriesContent>
-                        <CategoriesList>
-                          {categories &&
-                            categories.map((c, i) => (
-                              <ListElement onMouseEnter={() => setIndex(i)} key={i}>
-                                <ListLink to={c.url}>
-                                  <ElementIconWrapper>
-                                    <img src={c.imageUrl ?? undefined} alt={`${c.name}`} />
-                                  </ElementIconWrapper>
-                                  <ElementName>{c.name}</ElementName>
-                                </ListLink>
-                              </ListElement>
-                            ))}
-                        </CategoriesList>
-                      </CategoriesContent>
-                      {index != null ? (
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: [0, 682.5, 630.5, 650] }}
-                          transition={{
-                            duration: 0.6,
-                            times: [0, 0.4, 0.7, 1],
-                            ease: 'easeOut',
-                          }}
-                          style={{
-                            overflow: 'hidden',
-                            borderLeft: '1px solid var(--color-light-gray-1)',
-                          }}
-                        >
-                          <ElementContent style={hardcodedStyle(index)}>
-                            {(categories?.[index]?.childItems ?? []).map((child) => (
-                              <ParentCategoryItem key={child.id}>
-                                <ParentCategoryLink to={child.url}>{child.name}</ParentCategoryLink>
-                                <SubCategories>
-                                  {child.childItems?.map((child) => (
-                                    <SubCategoryItem key={child.id}>
-                                      <SubCategoryLink to={child.url}>{child.name}</SubCategoryLink>
-                                    </SubCategoryItem>
-                                  ))}
-                                </SubCategories>
-                              </ParentCategoryItem>
-                            ))}
-                          </ElementContent>
-                        </motion.div>
-                      ) : null}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </CategoriesContentWrapper>
-            </CategoriesWrapper>
+            <HoverPurple>
+              <CategoriesWrapper
+                onMouseEnter={() => setCategoriesState(true)}
+                onMouseLeave={() => {
+                  setCategoriesState(false)
+                  setIndex(null)
+                }}
+              >
+                <CategoriesButton>
+                  <CategoriesIcon
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path stroke="#151515" d="M2.5 10h15m-15-5h15m-15 10h15"></path>
+                  </CategoriesIcon>
+                  {t('categories')}
+                </CategoriesButton>
+
+                <CategoriesContentWrapper>
+                  <AnimatePresence initial={false}>
+                    {categoriesState && (
+                      <motion.div
+                        initial={{ height: 0 }}
+                        animate={{ height: 'auto' }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        style={{ display: 'flex', overflow: 'hidden' }}
+                      >
+                        <CategoriesContent>
+                          <CategoriesList>
+                            {categories &&
+                              categories.map((c, i) => (
+                                <ListElement onMouseEnter={() => setIndex(i)} key={i}>
+                                  <ListLink to={c.url}>
+                                    <ElementIconWrapper>
+                                      <img src={c.imageUrl ?? undefined} alt={`${c.name}`} />
+                                    </ElementIconWrapper>
+                                    <ElementName>{c.name}</ElementName>
+                                  </ListLink>
+                                </ListElement>
+                              ))}
+                          </CategoriesList>
+                        </CategoriesContent>
+                        {index != null ? (
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: [0, 682.5, 630.5, 650] }}
+                            transition={{
+                              duration: 0.6,
+                              times: [0, 0.4, 0.7, 1],
+                              ease: 'easeOut',
+                            }}
+                            style={{
+                              overflow: 'hidden',
+                              borderLeft: '1px solid var(--color-light-gray-1)',
+                            }}
+                          >
+                            <ElementContent style={hardcodedStyle(index)}>
+                              {(categories?.[index]?.childItems ?? []).map((child) => (
+                                <ParentCategoryItem key={child.id}>
+                                  <ParentCategoryLink to={child.url}>
+                                    {child.name}
+                                  </ParentCategoryLink>
+                                  <SubCategories>
+                                    {child.childItems?.map((child) => (
+                                      <SubCategoryItem key={child.id}>
+                                        <SubCategoryLink to={child.url}>
+                                          {child.name}
+                                        </SubCategoryLink>
+                                      </SubCategoryItem>
+                                    ))}
+                                  </SubCategories>
+                                </ParentCategoryItem>
+                              ))}
+                            </ElementContent>
+                          </motion.div>
+                        ) : null}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </CategoriesContentWrapper>
+              </CategoriesWrapper>
+            </HoverPurple>
             <SearchWrapper>
               <SearchInput placeholder={t('searchPlaceholder')}></SearchInput>
               <SearchIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
@@ -162,41 +174,49 @@ const Header = () => {
               </SearchIcon>
             </SearchWrapper>
             <UtilsWrapper>
-              <CircleWrapper>
-                <CircleImage
-                  src="https://alta.ge/icons/cart-header.svg"
-                  loading="lazy"
-                  alt="cart icon"
-                />
-              </CircleWrapper>
-              <CircleWrapper>
-                <CircleImage
-                  src="https://alta.ge/icons/wishlist-header.svg"
-                  loading="lazy"
-                  alt="wishlist icon"
-                />
-              </CircleWrapper>
-              <SignInWrapper>
-                <SignInButton>
-                  <SignInIcon
-                    xmlns="http://www.w3.org/2000/svg"
-                    baseProfile="tiny"
-                    viewBox="0 0 56.69 56.69"
-                  >
-                    <g data-name="Layer_1">
-                      <circle cx="28.35" cy="28.35" r="28.35" fill="#fff"></circle>
-                      <path d="M28.35 12.94c-8.51 0-15.4 6.9-15.4 15.4s6.9 15.4 15.4 15.4 15.4-6.89 15.4-15.4-6.89-15.4-15.4-15.4ZM16.26 28.35c0-6.67 5.42-12.09 12.09-12.09s12.09 5.42 12.09 12.09c0 2.42-.72 4.68-1.96 6.57-2.89-2.36-6.48-3.67-10.19-3.67s-7.23 1.3-10.11 3.62a12.018 12.018 0 0 1-1.92-6.52Zm12.09 12.08c-3.07 0-5.88-1.15-8.01-3.05 2.28-1.81 5.08-2.83 7.95-2.83s5.73 1.03 8.02 2.87c-2.13 1.87-4.91 3-7.96 3Z"></path>
-                      <path d="M28.35 21.75c1.41 0 2.55 1.15 2.55 2.55s-1.15 2.55-2.55 2.55-2.55-1.15-2.55-2.55 1.15-2.55 2.55-2.55Zm0-2.95c-3.04 0-5.51 2.47-5.51 5.51s2.47 5.51 5.51 5.51 5.51-2.47 5.51-5.51-2.47-5.51-5.51-5.51Z"></path>
-                    </g>
-                  </SignInIcon>
-                  <SignInText>{t('signIn')}</SignInText>
-                </SignInButton>
-              </SignInWrapper>
-              <LanguageWrapper
-                onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'ka' : 'en')}
-              >
-                <Language>{t('currentLanguage')}</Language>
-              </LanguageWrapper>
+              <HoverPurple>
+                <CircleWrapper>
+                  <CircleImage
+                    src="https://alta.ge/icons/cart-header.svg"
+                    loading="lazy"
+                    alt="cart icon"
+                  />
+                </CircleWrapper>
+              </HoverPurple>
+              <HoverPurple>
+                <CircleWrapper>
+                  <CircleImage
+                    src="https://alta.ge/icons/wishlist-header.svg"
+                    loading="lazy"
+                    alt="wishlist icon"
+                  />
+                </CircleWrapper>
+              </HoverPurple>
+              <HoverPurple>
+                <SignInWrapper>
+                  <SignInButton>
+                    <SignInIcon
+                      xmlns="http://www.w3.org/2000/svg"
+                      baseProfile="tiny"
+                      viewBox="0 0 56.69 56.69"
+                    >
+                      <g data-name="Layer_1">
+                        <circle cx="28.35" cy="28.35" r="28.35" fill="#fff"></circle>
+                        <path d="M28.35 12.94c-8.51 0-15.4 6.9-15.4 15.4s6.9 15.4 15.4 15.4 15.4-6.89 15.4-15.4-6.89-15.4-15.4-15.4ZM16.26 28.35c0-6.67 5.42-12.09 12.09-12.09s12.09 5.42 12.09 12.09c0 2.42-.72 4.68-1.96 6.57-2.89-2.36-6.48-3.67-10.19-3.67s-7.23 1.3-10.11 3.62a12.018 12.018 0 0 1-1.92-6.52Zm12.09 12.08c-3.07 0-5.88-1.15-8.01-3.05 2.28-1.81 5.08-2.83 7.95-2.83s5.73 1.03 8.02 2.87c-2.13 1.87-4.91 3-7.96 3Z"></path>
+                        <path d="M28.35 21.75c1.41 0 2.55 1.15 2.55 2.55s-1.15 2.55-2.55 2.55-2.55-1.15-2.55-2.55 1.15-2.55 2.55-2.55Zm0-2.95c-3.04 0-5.51 2.47-5.51 5.51s2.47 5.51 5.51 5.51 5.51-2.47 5.51-5.51-2.47-5.51-5.51-5.51Z"></path>
+                      </g>
+                    </SignInIcon>
+                    <SignInText>{t('signIn')}</SignInText>
+                  </SignInButton>
+                </SignInWrapper>
+              </HoverPurple>
+              <HoverPurple>
+                <LanguageWrapper
+                  onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'ka' : 'en')}
+                >
+                  <Language>{t('currentLanguage')}</Language>
+                </LanguageWrapper>
+              </HoverPurple>
               <SearchSm>
                 <SearchIconSm
                   xmlns="http://www.w3.org/2000/svg"

@@ -330,8 +330,9 @@ export const UtilsWrapper = styled.div`
 
 export const CircleWrapper = styled.div`
   display: flex;
-  margin: 0px auto;
-  width: 100%;
+  margin: 0 auto;
+  border-radius: 50%;
+  cursor: pointer;
 
   @media (max-width: 1024px) {
     display: none;
@@ -382,7 +383,7 @@ export const SignInText = styled.span`
 `
 
 export const LanguageWrapper = styled.div`
-  width: 100%;
+  width: 40px;
   height: 40px;
   border-radius: 88px;
   background-color: var(--color-white);
