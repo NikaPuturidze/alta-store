@@ -2,7 +2,11 @@
 import type { AxiosPromise } from 'axios'
 import { useEffect, useState, useCallback } from 'react'
 
-export function useFetch<T>(fetchData: () => AxiosPromise<T>, dep: unknown[] = []) {
+export function useFetch<T>(
+  fetchData: () => AxiosPromise<T> | undefined,
+  dep: unknown[] = [],
+  onSuccess?: () => void
+) {
   const [response, setResponse] = useState<T | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -12,17 +16,18 @@ export function useFetch<T>(fetchData: () => AxiosPromise<T>, dep: unknown[] = [
       setLoading(true)
       setError(null)
       const result = await fetchData()
-      setResponse(result.data)
+      setResponse(result!.data)
+      if (onSuccess) onSuccess()
     } catch (error: unknown) {
       setError(`Error: ${error}`)
     } finally {
       setLoading(false)
     }
-  }, [fetchData])
+  }, dep)
 
   useEffect(() => {
     fetchAPI()
-  }, [fetchAPI, ...dep])
+  }, [fetchAPI])
 
   return {
     response,
