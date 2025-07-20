@@ -30,5 +30,10 @@ export const ImageLinker = styled(Link)`
     max-height: 137px;
     border-radius: 10px;
     width: 100%;
+    transition: 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.015);
+    }
   }
 `
