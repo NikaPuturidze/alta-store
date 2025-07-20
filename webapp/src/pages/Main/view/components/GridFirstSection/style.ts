@@ -51,7 +51,25 @@ export const Content = styled.div`
   }
 `
 
-export const ProductWrapper = styled(Link)``
+export const ProductWrapper = styled(Link)`
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: all 0.3s ease-in-out;
+    border-radius: 12px;
+  }
+
+  &:hover::after {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`
 
 export const Product = styled.img`
   height: 100%;
