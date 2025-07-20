@@ -34,6 +34,10 @@ export const Category = styled(Link)`
   flex-shrink: 0;
   width: 100%;
 
+  &:hover {
+    transform: scale(1.03);
+  }
+
   @media (max-width: 1024px) {
     height: 82px;
     width: 158px;
