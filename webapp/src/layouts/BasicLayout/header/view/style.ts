@@ -81,6 +81,44 @@ export const CategoriesWrapper = styled.div`
   @media (max-width: 1024px) {
     display: none;
   }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 40px;
+    left: 0px;
+    height: 17px;
+    width: 240px;
+    background-color: transparent;
+  }
+`
+
+export const MotionCategoriesWrapper = styled.div`
+  width: 100%;
+  height: 40px;
+  border-radius: 88px;
+  background-color: var(--color-white);
+  box-shadow: rgba(0, 0, 0, 0.06) 1px 2px 8.5px 0px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 40px;
+    left: 0px;
+    height: 17px;
+    width: 240px;
+    background-color: transparent;
+  }
 `
 
 export const CategoriesButton = styled.button`
@@ -94,6 +132,144 @@ export const CategoriesButton = styled.button`
 export const CategoriesIcon = styled.svg`
   width: 20px;
   height: 20px;
+`
+
+export const CategoriesContentWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  top: 57px;
+  left: 0px;
+  max-height: calc(-75px + 100vh);
+  z-index: 2;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.06) 1px 2px 8.5px 0px;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+`
+
+export const ContentOpen = {
+  height: 100,
+}
+
+export const CategoriesContent = styled.div`
+  position: relative;
+  top: 0px;
+  width: 240px;
+  z-index: 3;
+`
+
+export const CategoriesList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  max-height: 100%;
+  opacity: 1;
+  height: auto;
+`
+
+export const ListElement = styled.li`
+  border-bottom: 1px solid var(--color-light-gray-1);
+  cursor: pointer;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+
+  &:hover {
+    background-color: var(--color-light-purple-3);
+  }
+`
+
+export const ListLink = styled(Link)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+`
+
+export const ElementIconWrapper = styled.div`
+  width: 33px;
+  height: 35px;
+  position: relative;
+  object-fit: contain;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    color: transparent;
+  }
+`
+
+export const ElementName = styled.span`
+  font-weight: 400;
+  text-align: right;
+  max-width: 60%;
+`
+
+export const CategoriesListElement = styled.li`
+  border-bottom: 1px solid var(--color-light-gray-1);
+  cursor: pointer;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+`
+
+export const ElementContent = styled.div`
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  gap: 18px 32px;
+  border-radius: 0px 12px 12px 0px;
+  max-height: calc(-75px + 100vh);
+  padding: 32px 20px;
+  background-color: var(--color-white);
+  overflow-y: auto;
+`
+
+export const ParentCategoryItem = styled.div`
+  width: calc(33.3333% - 21.3333px);
+  height: fit-content;
+`
+
+export const ParentCategoryLink = styled(Link)`
+  line-height: 16px;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+    color: var(--color-purple-1);
+  }
+`
+
+export const SubCategories = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`
+
+export const SubCategoryItem = styled.li`
+  line-height: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  &:first-child {
+    margin-top: 12px;
+  }
+`
+
+export const SubCategoryLink = styled(Link)`
+  &:hover {
+    transform: scale(1.01);
+    color: var(--color-purple-1);
+  }
 `
 
 export const SearchWrapper = styled.div`
