@@ -17,6 +17,7 @@ import type { IGetFooter } from '../interfaces/getFooter.interface'
 import { useFetch } from '../../../../hooks/useFetch'
 import { useTranslation } from 'react-i18next'
 import { useIcons } from './getIcons'
+import { Link as ReactLink } from 'react-router'
 
 const Footer = () => {
   const { t, i18n } = useTranslation()
@@ -34,7 +35,9 @@ const Footer = () => {
             <ContentTitle>{t('firstFooterTitle')}</ContentTitle>
             <ContentList>
               {footerResponse?.firstFooter?.map((f, i) => (
-                <ListElement key={i}>{f.title}</ListElement>
+                <ListElement key={i}>
+                  <ReactLink to={`/Topic/${f.urlName}`}>{f.title}</ReactLink>
+                </ListElement>
               ))}
             </ContentList>
           </ContentBox>
@@ -42,7 +45,9 @@ const Footer = () => {
             <ContentTitle>{t('secondFooterTitle')}</ContentTitle>
             <ContentList>
               {footerResponse?.secondFooter?.map((f, i) => (
-                <ListElement key={i}>{f.title}</ListElement>
+                <ListElement key={i}>
+                  <ReactLink to={`/Topic/${f.urlName}`}>{f.title}</ReactLink>
+                </ListElement>
               ))}
             </ContentList>
           </ContentBox>
