@@ -1,5 +1,6 @@
 {
   "*.ts": ["prettier --parser typescript --write", "pnpm exec eslint --fix"],
   "*.js": ["pnpm exec eslint --fix"],
+  "*.cjs": ["pnpm exec eslint"],
   "*.json": "prettier --write"
 }
