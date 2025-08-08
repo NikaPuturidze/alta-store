@@ -84,7 +84,7 @@ export const FilterProvider = ({ children }: PropsWithChildren) => {
       })
     },
     key: ['products', i18n.language, debouncedPrice],
-    enabled: !!catId,
+    enabled: !!catId && !!debouncedPrice,
   })
 
   const loading = filterLoading || productsLoading
