@@ -1,5 +1,10 @@
+import { useFilterProvider } from '../../../context/FilterProvider'
+import useBreadcrumb from '../../../components/breadcrumb/breadcrumb'
+
 const ContentView = () => {
-  return <div>ContentView</div>
+  const { products } = useFilterProvider()
+
+  return useBreadcrumb({ breadcrumbList: products?.categoryName })
 }
 
 export default ContentView

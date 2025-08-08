@@ -19,6 +19,7 @@ import { useSearchParams } from 'react-router'
 
 type FilterContextT = {
   filter: IGetFilter | undefined
+  products: IGetProducts | undefined
   loading: boolean
   error: Error | null
   price: number[] | null
