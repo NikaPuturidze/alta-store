@@ -21,7 +21,10 @@ import { useIcons } from './getIcons'
 const Footer = () => {
   const { t, i18n } = useTranslation()
   const icons = useIcons()
-  const { response } = useFetch<IGetFooter>(getFooter, [i18n.language])
+  const { data: footerResponse } = useFetch<IGetFooter>({
+    fetchData: getFooter,
+    key: ['footer', i18n.language],
+  })
 
   return (
     <FooterWrapper>
@@ -30,13 +33,17 @@ const Footer = () => {
           <ContentBox>
             <ContentTitle>{t('firstFooterTitle')}</ContentTitle>
             <ContentList>
-              {response?.firstFooter?.map((f, i) => <ListElement key={i}>{f.title}</ListElement>)}
+              {footerResponse?.firstFooter?.map((f, i) => (
+                <ListElement key={i}>{f.title}</ListElement>
+              ))}
             </ContentList>
           </ContentBox>
           <ContentBox>
             <ContentTitle>{t('secondFooterTitle')}</ContentTitle>
             <ContentList>
-              {response?.secondFooter?.map((f, i) => <ListElement key={i}>{f.title}</ListElement>)}
+              {footerResponse?.secondFooter?.map((f, i) => (
+                <ListElement key={i}>{f.title}</ListElement>
+              ))}
             </ContentList>
           </ContentBox>
 

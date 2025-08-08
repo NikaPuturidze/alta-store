@@ -18,9 +18,9 @@ import { useDebounce } from 'use-debounce'
 import { useSearchParams } from 'react-router'
 
 type FilterContextT = {
-  filter: IGetFilter | null
+  filter: IGetFilter | undefined
   loading: boolean
-  error: string | null
+  error: Error | null
   price: number[] | null
   catId: number | null
   setPrice: Dispatch<SetStateAction<number[] | null>>
@@ -34,8 +34,7 @@ export const FilterContext = createContext<FilterContextT | null>(null)
 export const FilterProvider = ({ children }: PropsWithChildren) => {
   const [catId, setCatId] = useState<number | null>(null)
   const [price, setPrice] = useState<number[] | null>(null)
-  const [delay, setDelay] = useState(0)
-  const [debouncedPrice] = useDebounce(price, delay)
+  const [debouncedPrice] = useDebounce(price, 300)
   const [searchParams, setSearchParams] = useSearchParams()
   const { i18n } = useTranslation()
 
@@ -59,19 +58,23 @@ export const FilterProvider = ({ children }: PropsWithChildren) => {
   }, [debouncedPrice, setSearchParams])
 
   const {
-    response: filter,
-    loading: filterLoading,
+    data: filter,
+    isLoading: filterLoading,
     error: filterError,
     refetch: refetchFilter,
-  } = useFetch<IGetFilter>(() => getFilter(catId), [i18n.language, catId])
+  } = useFetch<IGetFilter>({
+    fetchData: () => getFilter(catId)!,
+    key: [i18n.language, catId],
+    enabled: !!catId,
+  })
 
   const {
-    response: products,
-    loading: productsLoading,
+    data: products,
+    isLoading: productsLoading,
     error: productsError,
     refetch: refetchProducts,
-  } = useFetch<IGetProducts>(
-    () => {
+  } = useFetch<IGetProducts>({
+    fetchData: () => {
       return getProducts({
         catId: catId,
         page: 1,
@@ -80,9 +83,9 @@ export const FilterProvider = ({ children }: PropsWithChildren) => {
         maxPrice: price?.[1],
       })
     },
-    [i18n.language, debouncedPrice],
-    () => setDelay(300)
-  )
+    key: ['products', i18n.language, debouncedPrice],
+    enabled: !!catId,
+  })
 
   const loading = filterLoading || productsLoading
   const error = filterError ?? productsError ?? null

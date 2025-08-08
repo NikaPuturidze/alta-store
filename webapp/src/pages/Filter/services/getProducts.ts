@@ -16,10 +16,7 @@ export const getProducts = ({
   limit,
   minPrice,
   maxPrice,
-}: Filters): AxiosPromise<IGetProducts> | undefined => {
-  if (!catId) return
-  if (!page) return
-
+}: Filters): AxiosPromise<IGetProducts> => {
   return axiosInstance.get(`/v1/Products/v3`, {
     params: {
       CategoryId: catId,

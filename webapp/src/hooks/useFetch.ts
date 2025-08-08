@@ -1,38 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+import { useQuery } from '@tanstack/react-query'
 import type { AxiosPromise } from 'axios'
-import { useEffect, useState, useCallback } from 'react'
 
-export function useFetch<T>(
-  fetchData: () => AxiosPromise<T> | undefined,
-  dep: unknown[] = [],
-  onSuccess?: () => void
-) {
-  const [response, setResponse] = useState<T | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+type Arguments<T> = {
+  fetchData: () => AxiosPromise<T>
+  key: unknown[]
+  enabled?: boolean
+}
 
-  const fetchAPI = useCallback(async () => {
-    try {
-      setLoading(true)
-      setError(null)
-      const result = await fetchData()
-      setResponse(result!.data)
-      if (onSuccess) onSuccess()
-    } catch (error: unknown) {
-      setError(`Error: ${error}`)
-    } finally {
-      setLoading(false)
-    }
-  }, dep)
-
-  useEffect(() => {
-    fetchAPI()
-  }, [fetchAPI])
-
-  return {
-    response,
-    loading,
-    error,
-    refetch: fetchAPI,
-  }
+export const useFetch = <T>({ fetchData, key, enabled = true }: Arguments<T>) => {
+  return useQuery({
+    queryKey: key,
+    queryFn: async () => {
+      const { data } = await fetchData()
+      return data
+    },
+    enabled,
+  })
 }

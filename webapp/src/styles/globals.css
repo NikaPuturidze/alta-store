@@ -56,6 +56,10 @@ html {
   }
 }
 
+body {
+  overflow: scroll;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -157,6 +161,7 @@ select {
 
   .swiper-button-prev {
     left: var(--swiper-navigation-side-offset);
+
     &::after {
       background-image: url(https://alta.ge/icons/arrow-left.svg);
     }

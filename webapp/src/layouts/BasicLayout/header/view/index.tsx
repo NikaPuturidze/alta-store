@@ -57,7 +57,10 @@ import { HoverPurple } from '../../../../styles/hover-purple'
 
 const Header = () => {
   const { t, i18n } = useTranslation()
-  const { response: categories } = useFetch<IGetCategories[]>(getCategories, [i18n.language])
+  const { data: categories } = useFetch<IGetCategories[]>({
+    fetchData: getCategories,
+    key: ['header', i18n.language],
+  })
   const [categoriesState, setCategoriesState] = useState<boolean>(false)
   const [index, setIndex] = useState<number | null>(null)
 

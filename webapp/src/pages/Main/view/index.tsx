@@ -16,8 +16,14 @@ import Blog from './components/Blog'
 
 const Main = () => {
   const { i18n } = useTranslation()
-  const { response: contentResponse } = useFetch<IGetContent>(getContent, [i18n.language])
-  const { response: blogResponse } = useFetch<IGetBlog>(getBlog, [i18n.language])
+  const { data: contentResponse } = useFetch<IGetContent>({
+    fetchData: getContent,
+    key: ['content', i18n.language],
+  })
+  const { data: blogResponse } = useFetch<IGetBlog>({
+    fetchData: getBlog,
+    key: ['blog', i18n.language],
+  })
 
   const determineSection = (section: Section, i: number) => {
     switch (section?.sectionType) {
