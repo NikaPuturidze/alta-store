@@ -34,10 +34,10 @@ const useBreadcrumb = ({ breadcrumbList }: Props) => {
             >
               <path
                 stroke="#292D32"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-miterlimit="10"
-                stroke-width="1.35"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="1.35"
                 d="m.712 1.56 4.89 4.89a1.49 1.49 0 0 1 0 2.1l-4.89 4.89"
               ></path>
             </svg>
