@@ -15,6 +15,11 @@ export const Wrapper = styled.div`
     list-style-type: disc;
     li {
       margin-left: 20px;
+
+      &::marker {
+        color: var(--color-purple-1);
+      }
+
       a {
         span {
           font-family: helveticaNeue !important;

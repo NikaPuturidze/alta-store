@@ -36,7 +36,7 @@ const Footer = () => {
             <ContentList>
               {footerResponse?.firstFooter?.map((f, i) => (
                 <ListElement key={i}>
-                  <ReactLink to={`/Topic/${f.urlName}`}>{f.title}</ReactLink>
+                  <ReactLink to={`/topic/${f.urlName}`}>{f.title}</ReactLink>
                 </ListElement>
               ))}
             </ContentList>
@@ -46,7 +46,7 @@ const Footer = () => {
             <ContentList>
               {footerResponse?.secondFooter?.map((f, i) => (
                 <ListElement key={i}>
-                  <ReactLink to={`/Topic/${f.urlName}`}>{f.title}</ReactLink>
+                  <ReactLink to={`/topic/${f.urlName}`}>{f.title}</ReactLink>
                 </ListElement>
               ))}
             </ContentList>

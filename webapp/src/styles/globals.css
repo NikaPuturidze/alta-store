@@ -117,7 +117,7 @@ select {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
   height: 5px;
   border-radius: 12px;
 }
